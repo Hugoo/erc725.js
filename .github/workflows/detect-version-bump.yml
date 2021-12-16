@@ -9,31 +9,9 @@ on:
       - 'main'
 
 jobs:
-  detect-version-bump:
-    name: 🔍  Detect version bump
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Test
-        run: echo "${{ github.event }}"
-
-      - name: 🔍 Check if version changed
-        uses: EndBug/version-check@v1
-        id: check
-
-      - name: ✅ Version bump detected
-        if: steps.check.outputs.changed == 'true'
-        run: echo "Version bump detected, triggering release workflow ✅"
-
   release:
     name: 📦 Create GitHub release and publish to NPM
     runs-on: ubuntu-latest
-    if: steps.check.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
-    needs: detect-version-bump
     steps:
       - name: Ensure main branch
         if: github.ref != 'refs/heads/main'
@@ -45,8 +23,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 🔍 Check if version changed
+        uses: EndBug/version-check@v1
+        if: github.event_name == 'push'
+        id: check
+
+      - run: echo "SHOULD_RELEASE=${{ steps.check.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' }}" >> $GITHUB_ENV
+
       - name: Use Node.js v16
         uses: actions/setup-node@v2
+        if: env.SHOULD_RELEASE == 'true'
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
@@ -54,33 +40,40 @@ jobs:
           cache: 'npm'
 
       - name: Set Version
+        if: env.SHOULD_RELEASE == 'true'
         run: |-
           APP_VERSION="v$(node -pe "require('./package.json').version")"
           echo "APP_VERSION=$APP_VERSION" >> $GITHUB_ENV
 
       - name: Install
+        if: env.SHOULD_RELEASE == 'true'
         run: npm ci
 
       - name: Test
+        if: env.SHOULD_RELEASE == 'true'
         run: npm test
 
       - name: Build
+        if: env.SHOULD_RELEASE == 'true'
         run: npm run build
 
       # Create GitHub Release
       - name: Extract release notes from CHANGELOG
+        if: env.SHOULD_RELEASE == 'true'
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
         with:
           release_notes_file: RELEASENOTES.md
 
       - uses: ncipollo/release-action@v1
+        if: env.SHOULD_RELEASE == 'true'
         with:
           bodyFile: 'RELEASENOTES.md'
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ env.APP_VERSION }}
 
       - name: Publish to NPM
+        if: env.SHOULD_RELEASE == 'true'
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
