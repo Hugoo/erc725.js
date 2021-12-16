@@ -47,12 +47,12 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: bump/v${{ env.APP_VERSION }}
+          branch: bump/${{ env.APP_VERSION }}
           base: develop
           delete-branch: true
-          title: ':arrow_up: Bump to v${{ env.APP_VERSION }}'
+          title: ':arrow_up: Bump to ${{ env.APP_VERSION }}'
           body: |
-            Bump to version: s${{ env.APP_VERSION }}
+            Bump to version: ${{ env.APP_VERSION }}
           labels: |
             automated pr
 
@@ -60,7 +60,7 @@ jobs:
       - name: Checkout to PR branch
         uses: actions/checkout@v2
         with:
-          ref: bump/v${{ env.APP_VERSION }}
+          ref: bump/${{ env.APP_VERSION }}
 
       - run: |
           git push --tags
