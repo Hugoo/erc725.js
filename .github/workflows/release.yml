@@ -23,15 +23,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🔍 Check if version changed
+      - name: 🔍  Check if version changed
         uses: EndBug/version-check@v1
         if: github.event_name == 'push'
         id: check
 
-      - name: 🔄 Check if should release
+      - name: 🔄  Check if should release
         run: echo "SHOULD_RELEASE=${{ steps.check.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' }}" >> $GITHUB_ENV
 
-      - name: ⚙️ Use Node.js v16
+      - name: ⚙️  Use Node.js v16
         uses: actions/setup-node@v2
         if: env.SHOULD_RELEASE == 'true'
         with:
@@ -40,33 +40,33 @@ jobs:
           scope: '@erc725'
           cache: 'npm'
 
-      - name: 📝 Set Version
+      - name: 📝  Set Version
         if: env.SHOULD_RELEASE == 'true'
         run: |-
           APP_VERSION="v$(node -pe "require('./package.json').version")"
           echo "APP_VERSION=$APP_VERSION" >> $GITHUB_ENV
 
-      - name: 🧰 Install
+      - name: 🧰  Install
         if: env.SHOULD_RELEASE == 'true'
         run: npm ci
 
-      - name: 🎯 Test
+      - name: 🎯  Test
         if: env.SHOULD_RELEASE == 'true'
         run: npm test
 
-      - name: 🛠 Build
+      - name: 🛠  Build
         if: env.SHOULD_RELEASE == 'true'
         run: npm run build
 
       # Create GitHub Release
-      - name: 📝 Extract release notes from CHANGELOG
+      - name: 📝  Extract release notes from CHANGELOG
         if: env.SHOULD_RELEASE == 'true'
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
         with:
           release_notes_file: RELEASENOTES.md
 
-      - name: 🚀 Create GitHub release
+      - name: 🚀  Create GitHub release
         uses: ncipollo/release-action@v1
         if: env.SHOULD_RELEASE == 'true'
         with:
@@ -74,7 +74,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ env.APP_VERSION }}
 
-      - name: 📦 Publish to NPM
+      - name: 📦  Publish to NPM
         if: env.SHOULD_RELEASE == 'true'
         run: npm publish --access public
         env:
