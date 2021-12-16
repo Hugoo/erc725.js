@@ -8,7 +8,7 @@
 
 #### Defined in
 
-[types/provider.ts:2](https://github.com/ERC725Alliance/erc725.js/blob/6794bc5/src/types/provider.ts#L2)
+[types/provider.ts:2](https://github.com/Hugoo/erc725.js/blob/859a4d3/src/types/provider.ts#L2)
 
 ___
 
@@ -18,7 +18,7 @@ ___
 
 #### Defined in
 
-[types/provider.ts:4](https://github.com/ERC725Alliance/erc725.js/blob/6794bc5/src/types/provider.ts#L4)
+[types/provider.ts:4](https://github.com/Hugoo/erc725.js/blob/859a4d3/src/types/provider.ts#L4)
 
 ___
 
@@ -28,4 +28,4 @@ ___
 
 #### Defined in
 
-[types/provider.ts:3](https://github.com/ERC725Alliance/erc725.js/blob/6794bc5/src/types/provider.ts#L3)
+[types/provider.ts:3](https://github.com/Hugoo/erc725.js/blob/859a4d3/src/types/provider.ts#L3)
