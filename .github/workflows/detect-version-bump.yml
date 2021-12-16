@@ -9,7 +9,7 @@ on:
 jobs:
   detect-version-bump:
     name: 🔍  Detect version bump
-    # if: github.event.action == 'push'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Test
-        run: echo "${{ github.event.action }}"
+        run: echo "${{ github.event }}"
 
       - name: 🔍 Check if version changed
         uses: EndBug/version-check@v1
