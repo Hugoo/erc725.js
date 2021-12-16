@@ -1,0 +1,63 @@
+# Will create a GitHub release and publish to NPM the latest version of main branch
+# It assumes the bump commit and tag are on main
+name: Release and Publish NPM Package
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [trigger-release]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Force main branch
+        if: github.ref == 'refs/heads/main'
+        run: |-
+          echo "Not running on main - exit"
+          exit 1
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js v16
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@erc725'
+          cache: 'npm'
+
+      - name: Set Version
+        run: |-
+          APP_VERSION="v$(node -pe "require('./package.json').version")"
+          echo "APP_VERSION=$APP_VERSION" >> $GITHUB_ENV
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      # Create GitHub Release
+      - name: Extract release notes from CHANGELOG
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v1
+        with:
+          release_notes_file: RELEASENOTES.md
+
+      - uses: ncipollo/release-action@v1
+        with:
+          bodyFile: 'RELEASENOTES.md'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ env.APP_VERSION }}
+
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
