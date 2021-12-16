@@ -1,6 +1,6 @@
 # If it detects a version bump on main, it will trigger a release.
 # If the workflow is started manually, it will skip the bump detection and attempt to publish.
-name: Release and publish to NPM
+name: Release and publish
 
 on:
   workflow_dispatch:
@@ -28,9 +28,10 @@ jobs:
         if: github.event_name == 'push'
         id: check
 
-      - run: echo "SHOULD_RELEASE=${{ steps.check.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' }}" >> $GITHUB_ENV
+      - name: 🔄 Check if should release
+        run: echo "SHOULD_RELEASE=${{ steps.check.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' }}" >> $GITHUB_ENV
 
-      - name: Use Node.js v16
+      - name: ⚙️ Use Node.js v16
         uses: actions/setup-node@v2
         if: env.SHOULD_RELEASE == 'true'
         with:
@@ -39,40 +40,41 @@ jobs:
           scope: '@erc725'
           cache: 'npm'
 
-      - name: Set Version
+      - name: 📝 Set Version
         if: env.SHOULD_RELEASE == 'true'
         run: |-
           APP_VERSION="v$(node -pe "require('./package.json').version")"
           echo "APP_VERSION=$APP_VERSION" >> $GITHUB_ENV
 
-      - name: Install
+      - name: 🧰 Install
         if: env.SHOULD_RELEASE == 'true'
         run: npm ci
 
-      - name: Test
+      - name: 🎯 Test
         if: env.SHOULD_RELEASE == 'true'
         run: npm test
 
-      - name: Build
+      - name: 🛠 Build
         if: env.SHOULD_RELEASE == 'true'
         run: npm run build
 
       # Create GitHub Release
-      - name: Extract release notes from CHANGELOG
+      - name: 📝 Extract release notes from CHANGELOG
         if: env.SHOULD_RELEASE == 'true'
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
         with:
           release_notes_file: RELEASENOTES.md
 
-      - uses: ncipollo/release-action@v1
+      - name: 🚀 Create GitHub release
+        uses: ncipollo/release-action@v1
         if: env.SHOULD_RELEASE == 'true'
         with:
           bodyFile: 'RELEASENOTES.md'
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ env.APP_VERSION }}
 
-      - name: Publish to NPM
+      - name: 📦 Publish to NPM
         if: env.SHOULD_RELEASE == 'true'
         run: npm publish --access public
         env:
