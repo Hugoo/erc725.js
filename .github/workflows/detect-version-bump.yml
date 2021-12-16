@@ -15,6 +15,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check if version changed
+      - name: 🔍 Check if version changed
         uses: EndBug/version-check@v1
         id: check
+
+      - name: ⏭️ No version bump detected
+        if: steps.check.outputs.changed == 'false'
+        run: echo "No version bump detected, skipping release ⏭️"
+
+      - name: ✅ Version bump detected
+        if: steps.check.outputs.changed == 'true'
+        run: echo "Version bump detected, triggering release workflow ✅"
+
+      # Trigger Release
+      - name: 🚀 Repository dispatch trigger-release
+        if: steps.check.outputs.changed == 'true'
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: trigger-release
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
