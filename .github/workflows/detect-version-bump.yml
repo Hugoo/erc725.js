@@ -1,6 +1,6 @@
 # If it detects a version bump on main, it will trigger a release.
 # If the workflow is started manually, it will skip the bump detection and attempt to publish.
-name: Detect version bump
+name: Release and publish to NPM
 
 on:
   workflow_dispatch:
@@ -32,7 +32,7 @@ jobs:
   release:
     name: 📦 Create GitHub release and publish to NPM
     runs-on: ubuntu-latest
-    # if: steps.check.outputs.changed == 'true'
+    if: steps.check.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
     needs: detect-version-bump
     steps:
       - name: Ensure main branch
