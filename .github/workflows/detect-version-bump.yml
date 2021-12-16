@@ -1,4 +1,5 @@
-name: Release
+# If it detects a version bump on main, it will trigger a release.
+name: Detect version bump
 
 on:
   push:
@@ -6,7 +7,7 @@ on:
       - 'main'
 
 jobs:
-  publish:
+  detect-version-bump:
     runs-on: ubuntu-latest
 
     steps:
