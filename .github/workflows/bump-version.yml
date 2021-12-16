@@ -39,7 +39,6 @@ jobs:
           npm run release -- ${{ github.event.inputs.name }}
 
       - name: 📝 Set Version
-        if: env.SHOULD_RELEASE == 'true'
         run: |-
           APP_VERSION="v$(node -pe "require('./package.json').version")"
           echo "APP_VERSION=$APP_VERSION" >> $GITHUB_ENV
