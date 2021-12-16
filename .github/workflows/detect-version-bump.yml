@@ -27,10 +27,11 @@ jobs:
         if: steps.check.outputs.changed == 'true'
         run: echo "Version bump detected, triggering release workflow ✅"
 
-  publish-release:
+  release:
     name: Create GitHub release and publish to NPM
     runs-on: ubuntu-latest
-    if: steps.check.outputs.changed == 'true'
+    # if: steps.check.outputs.changed == 'true'
+    needs: detect-version-bump
     steps:
       - name: Force main branch
         if: github.ref != 'refs/heads/main'
