@@ -66,7 +66,7 @@ jobs:
           git config --global user.email "release@lukso.network"
           git config --global user.name "LUKSO Bot"
           git tag -a ${{ env.APP_VERSION }} HEAD~ -m "Release Version ${{ env.APP_VERSION }} [CI]"
-          git push --set-upstream origin develop tag ${{ env.APP_VERSION }}
+          git push --set-upstream origin tag ${{ env.APP_VERSION }}
 
       # Create GitHub Release
       - name: 📝 Extract release notes from CHANGELOG
