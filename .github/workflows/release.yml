@@ -58,16 +58,13 @@ jobs:
         if: env.SHOULD_RELEASE == 'true'
         run: npm run build
 
-      - name: 🤖 Git Config
-        run: |-
-          git config --global user.email "release@lukso.network"
-          git config --global user.name "LUKSO Bot"
-
       # We assume this will be always triggered by a merge from develop
       # Therefore we tag the previous commit (the merge commit won't be on develop)
       - name: 🏷 Create and push Git Tag
         if: env.SHOULD_RELEASE == 'true'
         run: |-
+          git config --global user.email "release@lukso.network"
+          git config --global user.name "LUKSO Bot"
           git tag -a ${{ env.APP_VERSION }} HEAD~ -m "Release Version ${{ env.APP_VERSION }} [CI]"
           git push --set-upstream origin tag ${{ env.APP_VERSION }}
 
