@@ -9,7 +9,6 @@
     valueType: "bytes",
   },
 ```
-
 :::info
 Detailed information available on [LSP-2-ERC725YJSONSchema](https://github.com/lukso-network/LIPs/blob/master/LSPs/LSP-2-ERC725YJSONSchema.md)
 :::
@@ -22,9 +21,9 @@ Detailed information available on [LSP-2-ERC725YJSONSchema](https://github.com/l
 
 #### Defined in
 
-[types/ERC725JSONSchema.ts:50](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L50)
+[types/ERC725JSONSchema.ts:50](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/types/ERC725JSONSchema.ts#L50)
 
----
+___
 
 ### keyType
 
@@ -32,9 +31,9 @@ Detailed information available on [LSP-2-ERC725YJSONSchema](https://github.com/l
 
 #### Defined in
 
-[types/ERC725JSONSchema.ts:51](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L51)
+[types/ERC725JSONSchema.ts:51](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/types/ERC725JSONSchema.ts#L51)
 
----
+___
 
 ### name
 
@@ -42,9 +41,9 @@ Detailed information available on [LSP-2-ERC725YJSONSchema](https://github.com/l
 
 #### Defined in
 
-[types/ERC725JSONSchema.ts:49](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L49)
+[types/ERC725JSONSchema.ts:49](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/types/ERC725JSONSchema.ts#L49)
 
----
+___
 
 ### valueContent
 
@@ -52,9 +51,9 @@ Detailed information available on [LSP-2-ERC725YJSONSchema](https://github.com/l
 
 #### Defined in
 
-[types/ERC725JSONSchema.ts:52](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L52)
+[types/ERC725JSONSchema.ts:52](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/types/ERC725JSONSchema.ts#L52)
 
----
+___
 
 ### valueType
 
@@ -62,4 +61,4 @@ Detailed information available on [LSP-2-ERC725YJSONSchema](https://github.com/l
 
 #### Defined in
 
-[types/ERC725JSONSchema.ts:53](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L53)
+[types/ERC725JSONSchema.ts:53](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/types/ERC725JSONSchema.ts#L53)
