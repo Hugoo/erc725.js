@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.9](https://github.com/ERC725Alliance/erc725.js/compare/v0.9.4...v0.9.9) (2021-12-28)
+
 ### [0.9.8](https://github.com/ERC725Alliance/erc725.js/compare/v0.9.4...v0.9.8) (2021-12-28)
 
 ### [0.9.7](https://github.com/ERC725Alliance/erc725.js/compare/v0.9.4...v0.9.7) (2021-12-28)
