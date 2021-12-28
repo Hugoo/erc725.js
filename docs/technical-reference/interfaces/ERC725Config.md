@@ -8,12 +8,13 @@
 
 ```js title=Example
 const config = {
-  ipfsGateway: 'https://ipfs.lukso.network/ipfs/'
+  ipfsGateway: 'https://ipfs.lukso.network/ipfs/',
 };
 ```
+
 Make sure to use the following format: `<url>/ipfs/`.<br/>
 Another example: `https://cloudflare-ipfs.com/ipfs/`
 
 #### Defined in
 
-[types/Config.ts:11](https://github.com/Hugoo/erc725.js/blob/3c51bf6/src/types/Config.ts#L11)
+[types/Config.ts:11](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/Config.ts#L11)

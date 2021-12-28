@@ -8,19 +8,19 @@
 
 #### Defined in
 
-[types/provider.ts:2](https://github.com/Hugoo/erc725.js/blob/3c51bf6/src/types/provider.ts#L2)
+[types/provider.ts:2](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/provider.ts#L2)
 
-___
+---
 
-### GRAPH\_QL
+### GRAPH_QL
 
-• **GRAPH\_QL** = `"GRAPH_QL"`
+• **GRAPH_QL** = `"GRAPH_QL"`
 
 #### Defined in
 
-[types/provider.ts:4](https://github.com/Hugoo/erc725.js/blob/3c51bf6/src/types/provider.ts#L4)
+[types/provider.ts:4](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/provider.ts#L4)
 
-___
+---
 
 ### WEB3
 
@@ -28,4 +28,4 @@ ___
 
 #### Defined in
 
-[types/provider.ts:3](https://github.com/Hugoo/erc725.js/blob/3c51bf6/src/types/provider.ts#L3)
+[types/provider.ts:3](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/provider.ts#L3)
