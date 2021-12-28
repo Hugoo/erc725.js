@@ -31,7 +31,7 @@ jobs:
       - name: 🔄 Check if should release
         run: echo "SHOULD_RELEASE=${{ steps.check.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' }}" >> $GITHUB_ENV
 
-      - name: ⚙️ Use Node.js v16
+      - name: ⚙️ Setup Node.js v16
         uses: actions/setup-node@v2
         if: env.SHOULD_RELEASE == 'true'
         with:
