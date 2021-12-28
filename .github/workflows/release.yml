@@ -58,6 +58,11 @@ jobs:
         if: env.SHOULD_RELEASE == 'true'
         run: npm run build
 
+      - name: 🤖 Git Config
+        run: |-
+          git config --global user.email "release@lukso.network"
+          git config --global user.name "LUKSO Bot"
+
       - name: 🏷 Create and push Git Tag
         run: |-
           git tag -a ${{ env.APP_VERSION }} -m "Release Version ${{ env.APP_VERSION }} [CI]"
