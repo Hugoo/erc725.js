@@ -10,17 +10,17 @@
 
 [types/provider.ts:2](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/provider.ts#L2)
 
-___
+---
 
-### GRAPH\_QL
+### GRAPH_QL
 
-• **GRAPH\_QL** = `"GRAPH_QL"`
+• **GRAPH_QL** = `"GRAPH_QL"`
 
 #### Defined in
 
 [types/provider.ts:4](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/provider.ts#L4)
 
-___
+---
 
 ### WEB3
 

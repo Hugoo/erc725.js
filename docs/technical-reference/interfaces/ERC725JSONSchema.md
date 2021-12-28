@@ -9,6 +9,7 @@
     valueType: "bytes",
   },
 ```
+
 :::info
 Detailed information available on [LSP-2-ERC725YJSONSchema](https://github.com/lukso-network/LIPs/blob/master/LSPs/LSP-2-ERC725YJSONSchema.md)
 :::
@@ -23,7 +24,7 @@ Detailed information available on [LSP-2-ERC725YJSONSchema](https://github.com/l
 
 [types/ERC725JSONSchema.ts:50](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L50)
 
-___
+---
 
 ### keyType
 
@@ -33,7 +34,7 @@ ___
 
 [types/ERC725JSONSchema.ts:51](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L51)
 
-___
+---
 
 ### name
 
@@ -43,7 +44,7 @@ ___
 
 [types/ERC725JSONSchema.ts:49](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L49)
 
-___
+---
 
 ### valueContent
 
@@ -53,7 +54,7 @@ ___
 
 [types/ERC725JSONSchema.ts:52](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L52)
 
-___
+---
 
 ### valueType
 

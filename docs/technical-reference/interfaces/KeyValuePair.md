@@ -10,7 +10,7 @@
 
 [types/encodeData/JSONURL.ts:4](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/encodeData/JSONURL.ts#L4)
 
-___
+---
 
 ### value
 
