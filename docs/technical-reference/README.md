@@ -1,4 +1,4 @@
-# @erc725/erc725.js - v0.9.5
+# @erc725/erc725.js - v0.9.6
 
 ## Enumerations
 
@@ -24,61 +24,61 @@ Renames and exports: [ERC725](classes/ERC725.md)
 
 ### ERC725JSONSchemaKeyType
 
-Ƭ **ERC725JSONSchemaKeyType**: `"Singleton"` \| `"Mapping"` \| `"Array"` \| `"Bytes20Mapping"` \| `"Bytes20MappingWithGrouping"`
+Ƭ **ERC725JSONSchemaKeyType**: ``"Singleton"`` \| ``"Mapping"`` \| ``"Array"`` \| ``"Bytes20Mapping"`` \| ``"Bytes20MappingWithGrouping"``
 
 #### Defined in
 
-[types/ERC725JSONSchema.ts:3](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L3)
+[types/ERC725JSONSchema.ts:3](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/types/ERC725JSONSchema.ts#L3)
 
----
+___
 
 ### ERC725JSONSchemaValueContent
 
-Ƭ **ERC725JSONSchemaValueContent**: `"Number"` \| `"String"` \| `"Address"` \| `"Keccak256"` \| `"AssetURL"` \| `"JSONURL"` \| `"URL"` \| `"Markdown"`
+Ƭ **ERC725JSONSchemaValueContent**: ``"Number"`` \| ``"String"`` \| ``"Address"`` \| ``"Keccak256"`` \| ``"AssetURL"`` \| ``"JSONURL"`` \| ``"URL"`` \| ``"Markdown"``
 
 #### Defined in
 
-[types/ERC725JSONSchema.ts:10](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L10)
+[types/ERC725JSONSchema.ts:10](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/types/ERC725JSONSchema.ts#L10)
 
----
+___
 
 ### ERC725JSONSchemaValueType
 
-Ƭ **ERC725JSONSchemaValueType**: `"string"` \| `"address"` \| `"uint256"` \| `"bytes32"` \| `"bytes"` \| `"bytes4"` \| `"string[]"` \| `"address[]"` \| `"uint256[]"` \| `"bytes32[]"` \| `"bytes4[]"` \| `"bytes[]"`
+Ƭ **ERC725JSONSchemaValueType**: ``"string"`` \| ``"address"`` \| ``"uint256"`` \| ``"bytes32"`` \| ``"bytes"`` \| ``"bytes4"`` \| ``"string[]"`` \| ``"address[]"`` \| ``"uint256[]"`` \| ``"bytes32[]"`` \| ``"bytes4[]"`` \| ``"bytes[]"``
 
 #### Defined in
 
-[types/ERC725JSONSchema.ts:20](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/types/ERC725JSONSchema.ts#L20)
+[types/ERC725JSONSchema.ts:20](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/types/ERC725JSONSchema.ts#L20)
 
 ## Functions
 
 ### encodeData
 
-▸ **encodeData**<`Schema`, `T`\>(`data`, `schema`): { [K in T]: Schema[T]["encodedata"]["returnValues"]}
+▸ **encodeData**<`Schema`, `T`\>(`data`, `schema`): { [K in T]: Schema[T]["encodeData"]["returnValues"]}
 
 #### Type parameters
 
-| Name     | Type                                     |
-| :------- | :--------------------------------------- |
-| `Schema` | extends `GenericSchema`                  |
-| `T`      | extends `string` \| `number` \| `symbol` |
+| Name | Type |
+| :------ | :------ |
+| `Schema` | extends `GenericSchema` |
+| `T` | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name     | Type                                                   | Description                                                                               |
-| :------- | :----------------------------------------------------- | :---------------------------------------------------------------------------------------- |
-| `data`   | { [K in T]: Schema[T]["encodedata"]["inputTypes"]}     | an object of key-value pairs                                                              |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | { [K in T]: Schema[T]["encodeData"]["inputTypes"]} | an object of key-value pairs |
 | `schema` | [`ERC725JSONSchema`](interfaces/ERC725JSONSchema.md)[] | an array of schema definitions as per $[ERC725JSONSchema](interfaces/ERC725JSONSchema.md) |
 
 #### Returns
 
-{ [K in T]: Schema[T]["encodedata"]["returnValues"]}
+{ [K in T]: Schema[T]["encodeData"]["returnValues"]}
 
 #### Defined in
 
-[lib/utils.ts:481](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/lib/utils.ts#L481)
+[lib/utils.ts:481](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/lib/utils.ts#L481)
 
----
+___
 
 ### flattenEncodedData
 
@@ -89,8 +89,8 @@ for easier handling when writing the data to the blockchain.
 
 #### Parameters
 
-| Name          | Type     |
-| :------------ | :------- |
+| Name | Type |
+| :------ | :------ |
 | `encodedData` | `Object` |
 
 #### Returns
@@ -101,4 +101,4 @@ KeyValuePair[] An array of key-value objects
 
 #### Defined in
 
-[lib/utils.ts:553](https://github.com/Hugoo/erc725.js/blob/cc4420c/src/lib/utils.ts#L553)
+[lib/utils.ts:553](https://github.com/Hugoo/erc725.js/blob/3d9dd62/src/lib/utils.ts#L553)
