@@ -38,6 +38,8 @@ import ERC725 from '@erc725/erc725.js';
 
 ## Example Instantiation
 
+hello
+
 ```js
 import { ERC725 } from '@erc725/erc725.js';
 import Web3 from 'web3';
