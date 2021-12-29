@@ -8,7 +8,7 @@
 
 #### Defined in
 
-[types/encodeData/JSONURL.ts:4](https://github.com/Hugoo/erc725.js/blob/6e1cb07/src/types/encodeData/JSONURL.ts#L4)
+[types/encodeData/JSONURL.ts:4](https://github.com/Hugoo/erc725.js/blob/e359ee6/src/types/encodeData/JSONURL.ts#L4)
 
 ___
 
@@ -18,4 +18,4 @@ ___
 
 #### Defined in
 
-[types/encodeData/JSONURL.ts:5](https://github.com/Hugoo/erc725.js/blob/6e1cb07/src/types/encodeData/JSONURL.ts#L5)
+[types/encodeData/JSONURL.ts:5](https://github.com/Hugoo/erc725.js/blob/e359ee6/src/types/encodeData/JSONURL.ts#L5)
